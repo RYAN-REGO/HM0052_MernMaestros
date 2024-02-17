@@ -2,10 +2,11 @@ import "@mantine/core/styles.css";
 import { Burger, MantineProvider } from "@mantine/core";
 import { Sidebar } from "./components/Sidebar/Sidebar";
 import { useDisclosure } from "@mantine/hooks";
-import MentorProfilePage from "./components/Mentor/MentorProfilePage";
-import MenteeProfilePage from "./components/Mentee/MenteeProfilePage";
+import MentorProfilePage from "./pages/MentorProfilePage";
+import MenteeProfilePage from "./pages/MenteeProfile";
 import EditProfileForm from "./components/Form/EditProfileForm";
 import { Route, Routes } from "react-router-dom";
+import FeedPage from "./pages/Feed/Feed";
 
 import "@fontsource/poppins";
 import "@fontsource/poppins/400.css";
@@ -17,7 +18,7 @@ import "@fontsource/work-sans/400.css";
 import "@fontsource/work-sans/500.css";
 import "@fontsource/work-sans/600.css";
 import "@fontsource/work-sans/700.css";
-import Feed from "./components/Feed/Feed";
+
 
 const App = () => {
   const [opened, { toggle }] = useDisclosure();
@@ -50,10 +51,11 @@ const App = () => {
           <div className="p-4 w-full">
             <div>
             <Routes>
-              <Route path="/" element={<Feed/>} />
+              <Route path="/" element={<FeedPage/>} />
               <Route path="/mentor" element={<MentorProfilePage />} />
               <Route path="/mentee" element={<MenteeProfilePage />} />
               <Route path="/edit" element={<EditProfileForm />} />
+
             </Routes>
             </div>
           </div>

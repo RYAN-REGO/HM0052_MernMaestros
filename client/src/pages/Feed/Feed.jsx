@@ -1,8 +1,8 @@
 
 import { Select } from '@mantine/core';
-import FeedCard from '../Card/FeedCard';
+import FeedCard from '../../components/Card/FeedCard';
 
-const Feed = () => {
+const FeedPage = () => {
 
   return (
     <main className="w-full overflow-auto h-[95vh]">
@@ -34,4 +34,4 @@ const Feed = () => {
   );
 };
 
-export default Feed;
+export default FeedPage;
