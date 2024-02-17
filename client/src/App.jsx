@@ -22,7 +22,11 @@ import "@fontsource/work-sans/700.css";
 import SignUp from "./pages/Signup/Signup";
 import Login from "./pages/Login/Login";
 import MentorDashboard from "./pages/MentorDashboard/MentorDashboard";
+
 import MentorCall from "./pages/MentorCall";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 axios.defaults.baseURL = "http://localhost:5000/api/";
 const App = () => {
@@ -32,6 +36,21 @@ const App = () => {
   return (
     <MantineProvider>
       <div>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        transition: Bounce
+        />
+      <ToastContainer />
+
         <div className="md:hidden flex items-center">
           <Burger
             opened={opened}
