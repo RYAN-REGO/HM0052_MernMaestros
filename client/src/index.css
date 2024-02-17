@@ -8,6 +8,13 @@
   padding: 0;
 }
 
+body {
+  font-family: "Work Sans";
+}
+h1 {
+  font-family: "Poppins";
+}
+
 ::-webkit-scrollbar {
   width: 2px;
 }
