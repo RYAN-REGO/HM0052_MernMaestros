@@ -15,13 +15,13 @@ import { MantineLogo } from "@mantinex/mantine-logo";
 import classes from "./NavbarSimple.module.css";
 
 const data = [
-  { link: "", label: "Notifications", icon: IconBellRinging },
-  { link: "", label: "Billing", icon: IconReceipt2 },
-  { link: "", label: "Security", icon: IconFingerprint },
-  { link: "", label: "SSH Keys", icon: IconKey },
-  { link: "", label: "Databases", icon: IconDatabaseImport },
-  { link: "", label: "Authentication", icon: Icon2fa },
-  { link: "", label: "Other Settings", icon: IconSettings },
+  { link: "", label: "Notification", icon: IconBellRinging },
+  { link: "", label: "Find Mentor", icon: IconReceipt2 },
+  { link: "", label: "Join Meet", icon: IconFingerprint },
+  // { link: "", label: "SSH Keys", icon: IconKey },
+  // { link: "", label: "Databases", icon: IconDatabaseImport },
+  // { link: "", label: "Authentication", icon: Icon2fa },
+  // { link: "", label: "Other Settings", icon: IconSettings },
 ];
 
 export function Sidebar({ toggle }) {
@@ -66,7 +66,7 @@ export function Sidebar({ toggle }) {
           onClick={(event) => event.preventDefault()}
         >
           <IconSwitchHorizontal className={classes.linkIcon} stroke={1.5} />
-          <span>Change account</span>
+          <span>Profile</span>
         </a>
 
         <a

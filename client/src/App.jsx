@@ -5,6 +5,18 @@ import { Sidebar } from "./components/Sidebar/Sidebar";
 import { useDisclosure } from "@mantine/hooks";
 import MentorProfilePage from "./components/Mentor/MentorProfilePage";
 import MenteeProfilePage from "./components/Mentee/MenteeProfilePage";
+import EditProfileForm from "./components/Form/EditProfileForm";
+
+import "@fontsource/poppins";
+import "@fontsource/poppins/400.css";
+import "@fontsource/poppins/500.css";
+import "@fontsource/poppins/600.css";
+import "@fontsource/poppins/700.css";
+import "@fontsource/work-sans";
+import "@fontsource/work-sans/400.css";
+import "@fontsource/work-sans/500.css";
+import "@fontsource/work-sans/600.css";
+import "@fontsource/work-sans/700.css";
 
 const App = () => {
   const [opened, { toggle }] = useDisclosure();
@@ -30,14 +42,15 @@ const App = () => {
           </div>
         </div>
         <div className="flex flex-row justify-between">
-          <div className="hidden md:flex flex-row w-1/2">
+          <div className="hidden md:flex flex-row">
             <Sidebar toggle={toggle} />
           </div>
           {/* all routes goes here */}
-          <div className="p-4">
+          <div className="p-4 w-full">
             <div>
               {/* <MentorProfilePage /> */}
-              <MenteeProfilePage />
+              {/* <MenteeProfilePage /> */}
+              <EditProfileForm />
             </div>
           </div>
         </div>
