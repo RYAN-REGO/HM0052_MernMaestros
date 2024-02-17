@@ -1,4 +1,3 @@
-import React from "react";
 import MentorCard from "./MentorCard";
 
 const MentorProfilePage = () => {

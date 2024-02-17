@@ -1,12 +1,11 @@
 
-import React from "react";
 import { Select } from '@mantine/core';
-
+import FeedCard from '../Card/FeedCard';
 
 const Feed = () => {
 
   return (
-    <main className="w-full h-full">
+    <main className="w-full overflow-auto h-[95vh]">
       <div className="w-full min-h-[130px] flex-col item-center gap-3 bg-[rgba(34,139,230,.1)] rounded-md">
         <div className="w-full  flex items-center font-bold text-[30px] p-5 tracking-wide">
           Recommended Mentors
@@ -24,6 +23,12 @@ const Feed = () => {
             />
           </div>
         </div>
+      </div>
+      <div className='flex gap-4 mt-2 flex-wrap'>
+        <FeedCard/>
+        <FeedCard/>
+        <FeedCard/>
+        <FeedCard/>
       </div>
     </main>
   );

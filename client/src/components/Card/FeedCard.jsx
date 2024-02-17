@@ -1,8 +1,6 @@
-import React from 'react'
-
-const Card = () => {
+const FeedCard = () => {
   return (
-    <main className='w-[70vh] h-[315px] bg-white border rounded-md '>
+    <main className='w-full h-[315px] bg-white border rounded-md '>
       <div className="flex flex-row gap-3">
         <div className="h-[120px] w-[170px] bg-black"></div>
         <div className="flex-col w-full h-[120px]">
@@ -37,4 +35,4 @@ const Card = () => {
   )
 }
 
-export default Card;
+export default FeedCard;
