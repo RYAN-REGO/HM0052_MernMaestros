@@ -6,7 +6,7 @@ const EditProfileForm = () => {
   //     // Send formData including guidanceTopics array to the backend
   //   };
   return (
-    <div className="pb-28 md:px-11 py-5 text-gray-700 h-[100vh] overflow-auto">
+    <div className="pb-28 md:px-11 py-5 text-gray-700 h-[95vh] overflow-auto">
       <div className="h-24 flex items-center bg-blue-200 rounded-lg">
         <h1 className="ml-4 text-4xl font-bold">Edit Profile</h1>
       </div>
