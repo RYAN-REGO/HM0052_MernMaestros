@@ -23,6 +23,10 @@ const mentorSchema = new Schema({
     role: { 
         type: String, 
         default: 'mentor'
+    },
+    isFormFilled: {
+        type: Boolean,
+        default: false
     },},
     {
         timestamps: true

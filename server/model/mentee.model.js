@@ -23,6 +23,10 @@ const menteeSchema = new Schema({
     role: { 
         type: String, 
         default: 'mentee'
+    },
+    isFormFilled: {
+        type: Boolean,
+        default: false
     },},
     {
         timestamps: true
