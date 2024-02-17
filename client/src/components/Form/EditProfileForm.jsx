@@ -1,5 +1,3 @@
-import React from "react";
-
 const EditProfileForm = () => {
   // const handleSubmit = (event) => {
   //     event.preventDefault();
