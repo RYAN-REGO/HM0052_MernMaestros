@@ -21,6 +21,7 @@ import "@fontsource/work-sans/600.css";
 import "@fontsource/work-sans/700.css";
 import SignUp from "./pages/Signup/Signup";
 import Login from "./pages/Login/Login";
+import MentorDashboard from "./pages/MentorDashboard/MentorDashboard";
 
 axios.defaults.baseURL = "http://localhost:5000/api/";
 const App = () => {
@@ -53,15 +54,17 @@ const App = () => {
           {/* all routes goes here */}
           <div className="p-4 w-full">
             <div>
-            <Routes>
-              <Route path="/" element={<FeedPage/>} />
-              <Route path="/mentor" element={<MentorProfilePage />} />
-              <Route path="/mentee" element={<MenteeProfilePage />} />
-              <Route path="/edit" element={<EditProfileForm />} />
+              <Routes>
+                <Route path="/" element={<FeedPage />} />
+                <Route path="/mentor" element={<MentorProfilePage />} />
+                <Route path="/mentee" element={<MenteeProfilePage />} />
+                <Route path="/edit" element={<EditProfileForm />} />
 
-              <Route path='/signup' element={<SignUp/>}/>
-              <Route path='/login' element={<Login/>}/>
-            </Routes>
+                <Route path="/signup" element={<SignUp />} />
+                <Route path="/login" element={<Login />} />
+
+                <Route path="/dashboard" element={<MentorDashboard />} />
+              </Routes>
             </div>
           </div>
         </div>
