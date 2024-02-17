@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fontsource/poppins": "^5.0.8",
+    "@fontsource/work-sans": "^5.0.16",
     "@mantine/core": "^7.5.3",
     "@mantine/hooks": "^7.5.3",
     "@mantinex/mantine-logo": "^1.0.1",

@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Group, Code } from '@mantine/core';
+import { useState } from "react";
+import { Group, Code } from "@mantine/core";
 import {
   IconBellRinging,
   IconFingerprint,
@@ -10,22 +10,22 @@ import {
   IconReceipt2,
   IconSwitchHorizontal,
   IconLogout,
-} from '@tabler/icons-react';
-import { MantineLogo } from '@mantinex/mantine-logo';
-import classes from './NavbarSimple.module.css';
+} from "@tabler/icons-react";
+import { MantineLogo } from "@mantinex/mantine-logo";
+import classes from "./NavbarSimple.module.css";
 
 const data = [
-  { link: '', label: 'Notifications', icon: IconBellRinging },
-  { link: '', label: 'Billing', icon: IconReceipt2 },
-  { link: '', label: 'Security', icon: IconFingerprint },
-  { link: '', label: 'SSH Keys', icon: IconKey },
-  { link: '', label: 'Databases', icon: IconDatabaseImport },
-  { link: '', label: 'Authentication', icon: Icon2fa },
-  { link: '', label: 'Other Settings', icon: IconSettings },
+  { link: "", label: "Notifications", icon: IconBellRinging },
+  { link: "", label: "Billing", icon: IconReceipt2 },
+  { link: "", label: "Security", icon: IconFingerprint },
+  { link: "", label: "SSH Keys", icon: IconKey },
+  { link: "", label: "Databases", icon: IconDatabaseImport },
+  { link: "", label: "Authentication", icon: Icon2fa },
+  { link: "", label: "Other Settings", icon: IconSettings },
 ];
 
-export function Sidebar({toggle}) {
-  const [active, setActive] = useState('Billing');
+export function Sidebar({ toggle }) {
+  const [active, setActive] = useState("Billing");
 
   const links = data.map((item) => (
     <a
@@ -44,22 +44,36 @@ export function Sidebar({toggle}) {
   ));
 
   return (
-    <nav className={classes.navbar}>
+    <nav className={`${classes.navbar} h-[100vh]`}>
       <div className={classes.navbarMain}>
         <Group className={classes.header} justify="space-between">
           <MantineLogo size={28} />
-          <Code onClick={toggle} className='md:hidden cursor-pointer text-md font-bold' fw={700}>Close</Code>
+          <Code
+            onClick={toggle}
+            className="md:hidden cursor-pointer text-md font-bold"
+            fw={700}
+          >
+            Close
+          </Code>
         </Group>
         {links}
       </div>
 
       <div className={classes.footer}>
-        <a href="#" className={classes.link} onClick={(event) => event.preventDefault()}>
+        <a
+          href="#"
+          className={classes.link}
+          onClick={(event) => event.preventDefault()}
+        >
           <IconSwitchHorizontal className={classes.linkIcon} stroke={1.5} />
           <span>Change account</span>
         </a>
 
-        <a href="#" className={classes.link} onClick={(event) => event.preventDefault()}>
+        <a
+          href="#"
+          className={classes.link}
+          onClick={(event) => event.preventDefault()}
+        >
           <IconLogout className={classes.linkIcon} stroke={1.5} />
           <span>Logout</span>
         </a>
