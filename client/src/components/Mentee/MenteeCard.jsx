@@ -1,9 +1,9 @@
 import { Avatar, Text, Group } from "@mantine/core";
-import { IconPhoneCall, IconAt } from "@tabler/icons-react";
-import classes from "./MentorCard.module.css";
+// import { IconPhoneCall, IconAt } from "@tabler/icons-react";
+import classes from "./MenteeCard.module.css";
 import ProfilePhoto from "../../assets/mentor.png";
 
-const MentorCard = () => {
+const MenteeCard = () => {
   return (
     <div>
       <Group wrap="nowrap">
@@ -14,7 +14,7 @@ const MentorCard = () => {
           </Text>
 
           <Text fz="xs" fw={700} c="dimmed">
-            Software engineer @Amazon
+            Student
           </Text>
 
           {/* <Group wrap="nowrap" gap={10} mt={3}>
@@ -36,4 +36,4 @@ const MentorCard = () => {
   );
 };
 
-export default MentorCard;
+export default MenteeCard;

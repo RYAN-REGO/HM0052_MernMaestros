@@ -4,6 +4,7 @@ import { Burger, MantineProvider } from "@mantine/core";
 import { Sidebar } from "./components/Sidebar/Sidebar";
 import { useDisclosure } from "@mantine/hooks";
 import MentorProfilePage from "./components/Mentor/MentorProfilePage";
+import MenteeProfilePage from "./components/Mentee/MenteeProfilePage";
 
 const App = () => {
   const [opened, { toggle }] = useDisclosure();
@@ -35,7 +36,8 @@ const App = () => {
           {/* all routes goes here */}
           <div className="p-4">
             <div>
-              <MentorProfilePage />
+              {/* <MentorProfilePage /> */}
+              <MenteeProfilePage />
             </div>
           </div>
         </div>

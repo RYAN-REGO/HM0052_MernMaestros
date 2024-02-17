@@ -1,18 +1,12 @@
 import React from "react";
-import MentorCard from "./MentorCard";
+import MenteeCard from "./MenteeCard";
 
-const MentorProfilePage = () => {
+const MenteeProfilePage = () => {
   return (
     <div className="px-9 pt-4 h-[100vh] overflow-auto">
       <div className="w-full h-44 bg-blue-300 rounded-lg mb-9 shadow-sm"></div>
       <div className="flex justify-between border border-gray-300 rounded-lg p-4 shadow-sm">
-        <MentorCard />
-        <div className="flex items-center gap-4">
-          <span className="text-3xl font-bold">$9</span>
-          <button className="px-4 h-9 active:scale-90 transition duration-300 bg-green-500 rounded-lg text-white font-semibold">
-            Book
-          </button>
-        </div>
+        <MenteeCard />
       </div>
       <div className="mt-9 border border-gray-300 rounded-lg p-4 shadow-sm">
         <h1 className="text-xl font-semibold">Description</h1>
@@ -25,7 +19,7 @@ const MentorProfilePage = () => {
         </p>
       </div>
       <div className="flex gap-2 items-center mt-9 border border-gray-300 rounded-lg p-4 shadow-sm">
-        <h1 className="text-xl font-semibold">Proficiency: </h1>
+        <h1 className="text-xl font-semibold">Need guidance in: </h1>
         <div className="ml-4 flex gap-4">
           <div className="flex items-center px-4 h-9 rounded-lg border border-gray-300">
             Python
@@ -42,4 +36,4 @@ const MentorProfilePage = () => {
   );
 };
 
-export default MentorProfilePage;
+export default MenteeProfilePage;
