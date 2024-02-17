@@ -7,6 +7,7 @@ import MenteeProfilePage from "./pages/MenteeProfile";
 import EditProfileForm from "./components/Form/EditProfileForm";
 import { Route, Routes } from "react-router-dom";
 import FeedPage from "./pages/Feed/Feed";
+import axios from "axios";
 
 import "@fontsource/poppins";
 import "@fontsource/poppins/400.css";
@@ -18,8 +19,10 @@ import "@fontsource/work-sans/400.css";
 import "@fontsource/work-sans/500.css";
 import "@fontsource/work-sans/600.css";
 import "@fontsource/work-sans/700.css";
+import SignUp from "./pages/Signup/Signup";
+import Login from "./pages/Login/Login";
 
-
+axios.defaults.baseURL = "http://localhost:5000/api/";
 const App = () => {
   const [opened, { toggle }] = useDisclosure();
   console.log(toggle, opened);
@@ -56,6 +59,8 @@ const App = () => {
               <Route path="/mentee" element={<MenteeProfilePage />} />
               <Route path="/edit" element={<EditProfileForm />} />
 
+              <Route path='/signup' element={<SignUp/>}/>
+              <Route path='/login' element={<Login/>}/>
             </Routes>
             </div>
           </div>
