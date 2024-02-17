@@ -15,8 +15,8 @@ import { MantineLogo } from '@mantinex/mantine-logo';
 import classes from './NavbarSimple.module.css';
 
 const data = [
-  { link: '', label: 'Notifications', icon: IconBellRinging },
-  { link: '', label: 'Billing', icon: IconReceipt2 },
+  { link: '', label: 'View Profile', icon: IconBellRinging },
+  { link: '', label: 'Find a Mentor', icon: IconReceipt2 },
   { link: '', label: 'Security', icon: IconFingerprint },
   { link: '', label: 'SSH Keys', icon: IconKey },
   { link: '', label: 'Databases', icon: IconDatabaseImport },

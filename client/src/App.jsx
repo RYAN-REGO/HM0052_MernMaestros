@@ -3,7 +3,11 @@ import '@mantine/core/styles.css';
 import { Burger, MantineProvider } from '@mantine/core';
 import { Sidebar } from './components/Sidebar/Sidebar';
 import { useDisclosure } from '@mantine/hooks';
-
+// import Card from './components/Card/Card';
+import Feed from './components/Feed/Feed';
+import {Routes} from 'react-router-dom';
+import { Route} from 'react-router';
+import MentorDashboard from './components/MentorDashboard/MentorDashboard';
 
 const App = () => {
   const [opened, { toggle }] = useDisclosure();
@@ -20,8 +24,12 @@ const App = () => {
          <Sidebar toggle={toggle}/>
         </div>
         {/* all routes goes here */}
-        <div className='p-4'>
-          sbdbfhdf jajfahjhfs afjasfjabfsaf sajfjasfuagfuiuafas fauhsfaubfsuaif
+        <div className='p-4 w-full'>   
+            <Routes>
+              <Route path='/' element={<MentorDashboard/>}/>
+            </Routes>
+          {/* <Card/> */}
+          {/* <Feed/> */}
         </div>
       </div>
     </MantineProvider>
