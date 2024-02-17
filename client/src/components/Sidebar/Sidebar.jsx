@@ -15,6 +15,7 @@ import { MantineLogo } from "@mantinex/mantine-logo";
 import classes from "./NavbarSimple.module.css";
 
 const data = [
+
   { link: "", label: "Notification", icon: IconBellRinging },
   { link: "", label: "Find Mentor", icon: IconReceipt2 },
   { link: "", label: "Join Meet", icon: IconFingerprint },
@@ -22,6 +23,7 @@ const data = [
   // { link: "", label: "Databases", icon: IconDatabaseImport },
   // { link: "", label: "Authentication", icon: Icon2fa },
   // { link: "", label: "Other Settings", icon: IconSettings },
+
 ];
 
 export function Sidebar({ toggle }) {
