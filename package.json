@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@mantine/carousel": "^7.5.3",
+    "lucide-react": "^0.331.0"
+  }
+}
