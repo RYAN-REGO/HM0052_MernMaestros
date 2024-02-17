@@ -22,6 +22,7 @@ import "@fontsource/work-sans/700.css";
 import SignUp from "./pages/Signup/Signup";
 import Login from "./pages/Login/Login";
 import MentorDashboard from "./pages/MentorDashboard/MentorDashboard";
+import MentorCall from "./pages/MentorCall";
 
 axios.defaults.baseURL = "http://localhost:5000/api/";
 const App = () => {
@@ -64,6 +65,8 @@ const App = () => {
                 <Route path="/login" element={<Login />} />
 
                 <Route path="/dashboard" element={<MentorDashboard />} />
+                {/* <Route path="/room/:roomId" element={<MentorCall/>} /> */}
+                <Route path="/room/:roomId" element={<MentorCall/>}/>
               </Routes>
             </div>
           </div>

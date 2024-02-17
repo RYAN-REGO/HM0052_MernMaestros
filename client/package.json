@@ -17,6 +17,7 @@
     "@mantinex/mantine-logo": "^1.0.1",
     "@reduxjs/toolkit": "^2.2.1",
     "@tabler/icons-react": "^2.47.0",
+    "@zegocloud/zego-uikit-prebuilt": "^1.10.2",
     "axios": "^1.6.7",
     "firebase": "^10.8.0",
     "react": "^18.2.0",

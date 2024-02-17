@@ -10,6 +10,7 @@ import {
 } from "@tabler/icons-react";
 import { MantineLogo } from "@mantinex/mantine-logo";
 import classes from "./NavbarSimple.module.css";
+import {useSelector} from 'react-redux';
 
 const data = [
 
@@ -25,6 +26,8 @@ const data = [
 
 export function Sidebar({ toggle }) {
   const [active, setActive] = useState("Billing");
+  const user = useSelector((state) => state.user);
+  console.log(user);
 
   const links = data.map((item) => (
     <a
