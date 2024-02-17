@@ -48,7 +48,7 @@ export function Sidebar({toggle}) {
       <div className={classes.navbarMain}>
         <Group className={classes.header} justify="space-between">
           <MantineLogo size={28} />
-          <Code onClick={toggle} className='md:hidden cursor-pointer' fw={700}>Close</Code>
+          <Code onClick={toggle} className='md:hidden cursor-pointer text-md font-bold' fw={700}>Close</Code>
         </Group>
         {links}
       </div>
