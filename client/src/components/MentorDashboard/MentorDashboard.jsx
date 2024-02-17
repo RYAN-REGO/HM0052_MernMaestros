@@ -8,7 +8,7 @@ const MentorDashboard = () => {
           Mentor Dashboard
         </div>
       </div>
-        <div className="min-h-[100vh] w-full flex flex-col gap-10">
+        <div className="min-h-[100vh] w-full flex flex-col gap-7">
             <div className="h-[100px] w-full bg-slate-300"></div>
             <div className="h-[100px] w-full bg-slate-300"></div>
         </div>
