@@ -21,9 +21,8 @@ import GoogleAuth from "../../components/GoogleAuth";
 const Login = () => {
     
     const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+    const [password, setPassword] = useState('')
   // const [loading, setLoading] = useState(false)
-
   const dispatch = useDispatch();
   const {loading,error} = useSelector(state => state.user)
 
@@ -31,13 +30,14 @@ const Login = () => {
   const navigateTo = (path) => {
       navigate(path);
   }
+  let role = localStorage.getItem('role');
 
   const postData = async () => {
   
     // setLoading(true); // Set loading to true when the request starts
     dispatch(signInStart());
     try {
-      const res = await axios.post('/auth/mentor/login', {
+      const res = await axios.post(`/auth/${role}/login`, {
         email,
         password
       });
@@ -47,7 +47,7 @@ const Login = () => {
       });
       console.log(res);
       localStorage.setItem('token', res.data.token);
-      navigateTo('/');
+      navigateTo('/edit');
     } catch (err) {
       dispatch(signInFailure(err.response.data))
       toast.error(error.message,{
