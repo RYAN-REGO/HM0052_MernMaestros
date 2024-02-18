@@ -27,6 +27,18 @@ const menteeSchema = new Schema({
     isFormFilled: {
         type: Boolean,
         default: false
+    },
+    firstName: {
+        type: String,
+    },
+    lastName: {
+        type: String,
+    },
+    bio: {
+        type: String,
+    },
+    needs: {
+        type: [String],
     },},
     {
         timestamps: true

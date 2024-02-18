@@ -98,7 +98,7 @@ const SignUp = () => {
             loading ? "Loading..." : "Sign up"
           }
         </Button>
-        <GoogleAuth />
+        <GoogleAuth role={role} />
       </Paper>
     </Container>
   )

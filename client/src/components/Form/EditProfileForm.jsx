@@ -1,10 +1,40 @@
+import axios from "axios";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 const EditProfileForm = () => {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [bio, setBio] = useState("");
+  const [guidanceTopics, setGuidanceTopics] = useState("");
   // const handleSubmit = (event) => {
   //     event.preventDefault();
   //     const formData = new FormData(event.target);
   //     const guidanceTopics = formData.get("guidanceTopics").split(",").map(topic => topic.trim()); // Split input value by commas
   //     // Send formData including guidanceTopics array to the backend
   //   };
+  const navigate = useNavigate();
+  const saveChanges = (event) => {
+    event.preventDefault();
+    const token = localStorage.getItem("token");
+    const needs = guidanceTopics.split(",").map(topic => topic.trim()); // Split input value by commas
+    // Send formData including guidanceTopics array to the backend
+    axios.post("profile/mentee/edit", {
+      token,
+      firstName,
+      lastName,
+      bio,
+      needs,
+    })
+    .then((res) => {
+      console.log(res);
+      navigate("/mentee");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  };
+
   return (
     <div className="pb-28 md:px-11 py-5 text-gray-700 h-[95vh] overflow-auto">
       <div className="h-24 flex items-center bg-blue-200 rounded-lg">
@@ -12,11 +42,12 @@ const EditProfileForm = () => {
       </div>
       <form
         className="mt-9 flex flex-col gap-6"
-        onSubmit={(e) => e.preventDefault()}
       >
         <label className="text-black-500 text-sm font-semibold">
           First name
           <input
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
             className="mt-1 block w-full rounded-lg border border-solid border-gray-300 bg-white p-2.5 text-sm leading-5 font-normal text-gray-700 shadow-sm"
             type="text"
             placeholder="First name"
@@ -26,6 +57,8 @@ const EditProfileForm = () => {
         <label className="text-black-500 text-sm font-semibold">
           Last name
           <input
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
             className="mt-1 block w-full rounded-lg border border-solid border-gray-300 bg-white p-2.5 text-sm leading-5 font-normal text-gray-700 shadow-sm"
             type="text"
             placeholder="Last name"
@@ -35,6 +68,8 @@ const EditProfileForm = () => {
         <label className="text-black-500 text-sm font-semibold">
           Bio
           <textarea
+            value={bio}
+            onChange={(e) => setBio(e.target.value)}
             className="mt-1 block w-full rounded-lg border border-solid border-gray-300 bg-white p-2.5 text-sm leading-5 font-normal text-gray-700 shadow-sm"
             type="text"
             placeholder="Last name"
@@ -46,6 +81,8 @@ const EditProfileForm = () => {
         <label className="text-black-500 text-sm font-semibold">
           Need for guidance in:
           <input
+            value={guidanceTopics}
+            onChange={(e) => setGuidanceTopics(e.target.value)}
             className="mt-1 block w-full rounded-lg border border-solid border-gray-300 bg-white p-2.5 text-sm leading-5 font-normal text-gray-700 shadow-sm"
             type="text"
             placeholder="Skills or topics (separated by commas)"
@@ -54,7 +91,7 @@ const EditProfileForm = () => {
           />
         </label>
         <div className="flex justify-end w-full">
-          <button className="px-4 h-11 transition duration-300 bg-green-500 rounded-lg font-semibold text-white">
+          <button onClick={saveChanges} className="px-4 h-11 transition duration-300 bg-green-500 rounded-lg font-semibold text-white">
             Save Profile Changes
           </button>
         </div>

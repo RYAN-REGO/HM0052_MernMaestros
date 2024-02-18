@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import { app } from "../firebase/firebaseConfig";
 import axios from "axios";
@@ -6,7 +7,7 @@ import { signInFailure, signInStart, signInSuccess } from "../redux/user/userSli
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import googleImage from "../assets/google.png"
-const GoogleAuth = () => {
+const GoogleAuth = ({role}) => {
     const auth = getAuth(app);
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -17,7 +18,7 @@ const GoogleAuth = () => {
         provider.setCustomParameters({prompt: 'select_account'});
         try{
             const formResult = await signInWithPopup(auth, provider);
-            const res = await axios.post('/auth/mentor/google', {
+            const res = await axios.post(`/auth/${role}/google`, {
                 username:formResult.user.displayName,
                 email:formResult.user.email,
                 googlePhotUrl:formResult.user.photoURL
@@ -30,7 +31,7 @@ const GoogleAuth = () => {
                     className: 'bg-second text-white'
                 });
                 localStorage.setItem('token', data.token);
-                navigate('/')
+                navigate('/edit')
             }
         }catch(err){
             dispatch(signInFailure(err.response.data));
