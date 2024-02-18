@@ -2,11 +2,6 @@ import ProfilePhoto from "../assets/mentor.png";
 import Carousal from "../components/testimonial/Carousal";
 
 const MentorProfilePage = () => {
-  const proficiencyItems = [
-    { name: "Python" },
-    { name: "Java" },
-    { name: "Flask" },
-  ];
 
   return (
     <div className="pb-28 md:px-16 pt-4 h-[95vh] overflow-auto text-gray-700">
