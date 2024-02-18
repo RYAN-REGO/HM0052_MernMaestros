@@ -24,6 +24,24 @@ const mentorSchema = new Schema({
         type: String, 
         default: 'mentor'
     },
+    firstName: {
+        type: String,
+    },
+    lastName: {
+        type: String,
+    },
+    currentlyWorkingAt: {
+        type: String,
+    },
+    bio: {
+        type: String,
+    },
+    proficiency: {
+        type: [String],
+    },
+    rateOfMentorship: {
+        type: String,
+    },
     isFormFilled: {
         type: Boolean,
         default: false

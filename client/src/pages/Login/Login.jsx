@@ -21,9 +21,8 @@ import GoogleAuth from "../../components/GoogleAuth";
 const Login = () => {
     
     const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+    const [password, setPassword] = useState('')
   // const [loading, setLoading] = useState(false)
-
   const dispatch = useDispatch();
   const {loading,error} = useSelector(state => state.user)
 
@@ -31,27 +30,28 @@ const Login = () => {
   const navigateTo = (path) => {
       navigate(path);
   }
+  let role = localStorage.getItem('role');
 
   const postData = async () => {
   
     // setLoading(true); // Set loading to true when the request starts
     dispatch(signInStart());
     try {
-      const res = await axios.post('/auth/mentor/login', {
+      const res = await axios.post(`/auth/${role}/login`, {
         email,
         password
       });
       dispatch(signInSuccess(res.data))
       toast.success("user successfully logged in", {
-        className: 'bg-second text-white'
+        className: 'bg-second text-black'
       });
       console.log(res);
       localStorage.setItem('token', res.data.token);
-      navigateTo('/');
+      navigateTo('/edit');
     } catch (err) {
       dispatch(signInFailure(err.response.data))
       toast.error(error.message,{
-        className: 'bg-second text-white'
+        className: 'bg-second text-black'
       });
       console.log(err.response);
     }
@@ -63,7 +63,7 @@ const Login = () => {
     dispatch(signInStart());
     if(!email || !password) {
       toast.error("All fields are required",{
-        className:'bg-second text-white'
+        className:'bg-second text-black'
       });
       // setLoading(false);
       dispatch(signInFailure("all fields are required"));
@@ -71,7 +71,7 @@ const Login = () => {
     }
     if(email.indexOf('@') === -1 || email.indexOf('.') === -1) {
       toast.error("Invalid email",{
-        className:'bg-second text-white'
+        className:'bg-second text-black'
       });
       // setLoading(false);
       dispatch(signInFailure("Invalid email"));
@@ -79,7 +79,7 @@ const Login = () => {
     }
     if(password.length < 8) {
       toast.error("Password must be at least 8 characters long",{
-        className:'bg-second text-white'
+        className:'bg-second text-black'
       });
       // setLoading(false);
       dispatch(signInFailure("Password must be at least 8 characters long"));

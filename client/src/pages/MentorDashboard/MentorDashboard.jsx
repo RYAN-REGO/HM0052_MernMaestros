@@ -1,4 +1,3 @@
-import React from "react";
 import MentorAllowCard from "../../components/MentorAllowCard/MentorAllowCard";
 const MentorDashboard = () => {
   return (

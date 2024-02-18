@@ -17,6 +17,7 @@ import {
 } from '@mantine/core';
 import classes from './AuthenticationTitle.module.css';
 import GoogleAuth from "../../components/GoogleAuth";
+import Option from "../../components/Option/Option";
 
 const SignUp = () => {
   
@@ -25,7 +26,8 @@ const SignUp = () => {
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
   const [loading, setLoading] = useState(false)
- 
+  const [role,setRole] = useState("");
+
   let errorMessage = "valid";
   
   const navigate = useNavigate()
@@ -35,20 +37,20 @@ const SignUp = () => {
 
 
   const postData = async () => {
-    await axios.post('/auth/signup', {
+    await axios.post(`/auth/${role}/signup`, {
       username,
       email,
       password
     }).then(() => {
         toast.success("sign up succesfully", {
-            className: 'bg-second text-white'
+            className: 'bg-second text-black'
         });
       setLoading(false);
       navigateTo('/login');
     }).catch((err) => {
       setLoading(false);
-      toast.error(err.response.data.msg,{
-        className: 'bg-second text-white'
+      toast.error("something went wrong",{
+        className: 'bg-second text-black'
       });
       console.log(err.response);
     });
@@ -58,13 +60,19 @@ const SignUp = () => {
     errorMessage = validateForm(username, email, password, confirmPassword);
     if (errorMessage !== "valid") {
       toast.error(errorMessage,{
-        className:'bg-second text-white'
+        className:'bg-second text-black'
       });
       setLoading(false);
       return;
     }
     postData();
   }
+  if(role==""){
+    return(
+        <Option setRole={setRole}/>
+    )
+  }
+
   return (
     <Container className="-mt-10" size={400} my={0}>
       <Title ta="center" className={classes.title}>
@@ -90,7 +98,7 @@ const SignUp = () => {
             loading ? "Loading..." : "Sign up"
           }
         </Button>
-        <GoogleAuth />
+        <GoogleAuth role={role} />
       </Paper>
     </Container>
   )
