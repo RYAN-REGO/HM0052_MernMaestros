@@ -28,7 +28,6 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import EditMentorProfile from "./components/Form/EditMentorForm";
 
-
 axios.defaults.baseURL = "http://localhost:5000/api/";
 const App = () => {
   const [opened, { toggle }] = useDisclosure();
@@ -37,21 +36,20 @@ const App = () => {
   return (
     <MantineProvider>
       <div>
-        <div className="md:hidden flex items-center p-4 border-b border-gray-300">
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-        transition: Bounce
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+          transition:Bounce
         />
-      <ToastContainer />
+        <ToastContainer />
 
         <div className="md:hidden flex items-center">
           <Burger
@@ -87,9 +85,9 @@ const App = () => {
 
                 <Route path="/dashboard" element={<MentorDashboard />} />
                 {/* <Route path="/room/:roomId" element={<MentorCall/>} /> */}
-                <Route path="/room/:roomId" element={<MentorCall/>}/>
+                <Route path="/room/:roomId" element={<MentorCall />} />
 
-                <Route path="/edit-mentor" element={<EditMentorProfile/>} />
+                <Route path="/edit-mentor" element={<EditMentorProfile />} />
               </Routes>
             </div>
           </div>
