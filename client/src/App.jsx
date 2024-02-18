@@ -76,8 +76,8 @@ const App = () => {
             <div>
               <Routes>
                 <Route path="/" element={<FeedPage />} />
-                <Route path="/mentor" element={<MentorProfilePage />} />
-                <Route path="/mentee" element={<MenteeProfilePage />} />
+                <Route path="/mentor/:id" element={<MentorProfilePage />} />
+                <Route path="/mentee/:id" element={<MenteeProfilePage />} />
                 <Route path="/edit" element={<EditProfileForm />} />
 
                 <Route path="/signup" element={<SignUp />} />

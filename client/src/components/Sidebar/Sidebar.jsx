@@ -72,7 +72,7 @@ export function Sidebar({ toggle }) {
             className={classes.link}
             data-active={"mentor" === active || undefined}
             onClick={(event) => {
-              onClickHandler("/mentor", event);
+              onClickHandler("/", event);
             }}
           >
             <IconUser className="mr-4" />
@@ -120,7 +120,7 @@ export function Sidebar({ toggle }) {
           className={classes.link}
           onClick={(event) => {
             event.preventDefault();
-            navigate("/mentee");
+            navigate(`/${getRole}/${user?.currentUser[`${getRole}`].email}` || "/login");
           }}
         >
           <img

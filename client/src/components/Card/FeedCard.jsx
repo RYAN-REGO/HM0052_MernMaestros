@@ -1,18 +1,17 @@
+/* eslint-disable react/prop-types */
 import ProfilePhoto from "../../assets/mentor.png";
 
-const FeedCard = () => {
+const FeedCard = ({mentor}) => {
   return (
     <div className="p-5 border-2 border-gray-300 rounded-lg hover:border-blue-400">
       <div className=" flex justify-between border-b pb-5 border-gray-300">
         <div className="flex gap-6  ">
-          <img src={ProfilePhoto} className="h-24 rounded-lg" alt="profile" />
+          <img src={mentor?.profilePicture || ProfilePhoto} className="h-24 rounded-lg" alt="profile" />
           <div>
-            <h1 className="font-semibold text-xl">Ryan Rego</h1>
-            <h3 className="text-gray-500">Associate engineer at XYZ</h3>
+            <h1 className="font-semibold text-xl">{mentor.firstName} {mentor.lastName}</h1>
+            <h3 className="text-gray-500">{mentor.currentlyWorkingAt}</h3>
             <p className="text-sm mt-1 line-clamp-2 w-3/5">
-              With 3 years of data Analyst experience, I offer tailored guidance
-              for your data goals.Dive into immersive sessions, real projects,
-              and master tools.
+              {mentor.bio}
             </p>
           </div>
         </div>
@@ -21,15 +20,11 @@ const FeedCard = () => {
         <div className="flex  gap-4 items-center">
           <span className="font-semibold">Profieciency: </span>
           <div className="flex flex-wrap w-44 gap-2">
-            <div className="px-2 py-1 border border-gray-300 rounded-full text-sm">
-              Webd
-            </div>
-            <div className="px-2 py-1 border border-gray-300 rounded-full text-sm">
-              Dsa
-            </div>
-            <div className="px-2 py-1 border border-gray-300 rounded-full text-sm">
-              Dsa
-            </div>
+            {mentor?.proficiency?.map((prof) => (
+              <div key={prof} className="px-2 py-1 border border-gray-300 rounded-full text-sm">
+                {prof}
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -40,7 +35,7 @@ const FeedCard = () => {
 
         <div className="flex items-center gap-4">
           <h1 className="text-2xl font-semibold">
-            100rs <span className="text-base font-normal">/hr</span>
+            {mentor.rateOfMentorship}rs <span className="text-base font-normal">/hr</span>
           </h1>
 
           <button className="py-2.5 px-4 bg-green-400 rounded-lg font-semibold text-white ">

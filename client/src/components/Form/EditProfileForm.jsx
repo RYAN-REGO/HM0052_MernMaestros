@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 const EditProfileForm = () => {
@@ -10,10 +9,13 @@ const EditProfileForm = () => {
   const [guidanceTopics, setGuidanceTopics] = useState("");
 
   const navigate = useNavigate();
-  const user = useSelector((state) => state.user);
+  // const user = useSelector((state) => state.user);
 
   const navigateIt = () => {
-    if (user?.currentUser?.role !== "mentee") {
+    const role = localStorage.getItem("role");
+    console.log(role);
+    console.log(role==="mentee");
+    if (role != "mentee") {
       navigate("/edit-mentor");
     }
   };
@@ -35,7 +37,7 @@ const EditProfileForm = () => {
       })
       .then((res) => {
         console.log(res);
-        navigate("/mentee");
+        navigate(`/mentee/${res?.data?._id}`);
       })
       .catch((err) => {
         console.log(err);

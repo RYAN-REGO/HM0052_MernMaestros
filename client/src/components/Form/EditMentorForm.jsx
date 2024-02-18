@@ -41,7 +41,7 @@ const EditMentorProfile = () => {
             toast.success("Edit profile successfully", {
                 className: 'bg-second text-black'
             })
-            navigate('/mentor')
+            navigate(`/mentor/${res?.data?._id}`)
         }).catch(err => {
             toast.error("Something went wrong", {
                 className: 'bg-second text-black'
