@@ -1,4 +1,4 @@
-const EditProfileForm = () => {
+const EditMentorProfile = () => {
   // const handleSubmit = (event) => {
   //     event.preventDefault();
   //     const formData = new FormData(event.target);
@@ -6,9 +6,9 @@ const EditProfileForm = () => {
   //     // Send formData including guidanceTopics array to the backend
   //   };
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center ">
       <div className="pb-28 md:w-[540px]  rounded-lg md:p-5 text-gray-700 h-[95vh] overflow-auto">
-        <h1 className="text-center text-3xl font-bold ">Edit Profile</h1>
+        <h1 className="text-3xl text-center font-bold ">Edit Profile</h1>
 
         <form
           className="bg-white mt-5 flex flex-col gap-6 rounded-lg border border-gray-300 shadow-md p-5"
@@ -36,6 +36,16 @@ const EditProfileForm = () => {
           </div>
 
           <label className="text-black-500 text-sm font-semibold">
+            Currently working at
+            <input
+              className="mt-1 block w-full  rounded-lg border border-solid border-gray-300 bg-white p-2.5 text-sm leading-5 font-normal text-gray-700 shadow-sm"
+              type="text"
+              placeholder="Associate engineer @XYZ"
+              required
+            />
+          </label>
+
+          <label className="text-black-500 text-sm font-semibold">
             Bio
             <textarea
               className="mt-1 block w-full rounded-lg border border-solid border-gray-300 bg-white p-2.5 text-sm leading-5 font-normal text-gray-700 shadow-sm"
@@ -47,11 +57,22 @@ const EditProfileForm = () => {
           </label>
 
           <label className="text-black-500 text-sm font-semibold">
-            Need for guidance in:
+            Proficiency:
             <input
               className="mt-1 block w-full rounded-lg border border-solid border-gray-300 bg-white p-2.5 text-sm leading-5 font-normal text-gray-700 shadow-sm"
               type="text"
               placeholder="Skills or topics (separated by commas)"
+              name="guidanceTopics" // Add a name attribute to identify this input field in the form
+              required
+            />
+          </label>
+
+          <label className="text-black-500 text-sm font-semibold">
+            Rate of mentorship per hour ( in rupees ):
+            <input
+              className="mt-1 block w-full rounded-lg border border-solid border-gray-300 bg-white p-2.5 text-sm leading-5 font-normal text-gray-700 shadow-sm"
+              type="number"
+              placeholder="100"
               name="guidanceTopics" // Add a name attribute to identify this input field in the form
               required
             />
@@ -66,4 +87,4 @@ const EditProfileForm = () => {
   );
 };
 
-export default EditProfileForm;
+export default EditMentorProfile;

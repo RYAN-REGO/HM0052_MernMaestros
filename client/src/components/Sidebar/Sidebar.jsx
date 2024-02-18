@@ -10,9 +10,9 @@ import {
 } from "@tabler/icons-react";
 import { MantineLogo } from "@mantinex/mantine-logo";
 import classes from "./NavbarSimple.module.css";
+import { X } from "lucide-react";
 
 const data = [
-
   { link: "", label: "Notification", icon: IconBellRinging },
   { link: "", label: "Find Mentor", icon: IconReceipt2 },
   { link: "", label: "Join Meet", icon: IconFingerprint },
@@ -20,7 +20,6 @@ const data = [
   // { link: "", label: "Databases", icon: IconDatabaseImport },
   // { link: "", label: "Authentication", icon: Icon2fa },
   // { link: "", label: "Other Settings", icon: IconSettings },
-
 ];
 
 export function Sidebar({ toggle }) {
@@ -28,7 +27,7 @@ export function Sidebar({ toggle }) {
 
   const links = data.map((item) => (
     <a
-      className={classes.link}
+      className={`{classes.link} `}
       data-active={item.label === active || undefined}
       href={item.link}
       key={item.label}
@@ -46,13 +45,9 @@ export function Sidebar({ toggle }) {
     <nav className={`${classes.navbar} h-[100vh]`}>
       <div className={classes.navbarMain}>
         <Group className={classes.header} justify="space-between">
-          <MantineLogo size={28} />
-          <Code
-            onClick={toggle}
-            className="md:hidden cursor-pointer text-md font-bold"
-            fw={700}
-          >
-            Close
+          <h1 className="text-2xl font-bold text-blue-500">AppName</h1>
+          <Code onClick={toggle} className="md:hidden cursor-pointer">
+            <X />
           </Code>
         </Group>
         {links}

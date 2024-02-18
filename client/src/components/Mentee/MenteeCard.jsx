@@ -16,20 +16,6 @@ const MenteeCard = () => {
           <Text fz="xs" fw={700} c="dimmed">
             Student
           </Text>
-
-          {/* <Group wrap="nowrap" gap={10} mt={3}>
-            <IconAt stroke={1.5} size="1rem" className={classes.icon} />
-            <Text fz="xs" c="dimmed">
-              robert@glassbreaker.io
-            </Text>
-          </Group>
-
-          <Group wrap="nowrap" gap={10} mt={5}>
-            <IconPhoneCall stroke={1.5} size="1rem" className={classes.icon} />
-            <Text fz="xs" c="dimmed">
-              +11 (876) 890 56 23
-            </Text>
-          </Group> */}
         </div>
       </Group>
     </div>
