@@ -29,6 +29,8 @@ import "react-toastify/dist/ReactToastify.css";
 import EditMentorProfile from "./components/Form/EditMentorForm";
 
 axios.defaults.baseURL = "http://localhost:5000/api/";
+// axios.defaults.baseURL = "https://mentor-connect.onrender.com/api";
+// axios.defaults.withCredentials = true;
 const App = () => {
   const [opened, { toggle }] = useDisclosure();
   console.log(toggle, opened);

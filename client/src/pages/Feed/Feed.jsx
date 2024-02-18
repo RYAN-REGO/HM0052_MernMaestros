@@ -44,7 +44,7 @@ const FeedPage = () => {
       </div>
       <div className="mt-11 flex flex-col gap-4">
         {
-          mentors.length > 0 ? mentors.map((mentor) => (
+          mentors.length > 0 ? mentors?.map((mentor) => (
             <FeedCard key={mentor._id} mentor={mentor} />
           )) : <h1>Loading...</h1>
         }
