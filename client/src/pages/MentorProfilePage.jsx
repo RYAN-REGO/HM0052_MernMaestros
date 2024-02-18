@@ -1,6 +1,8 @@
 import MentorCard from "../components/Mentor/MentorCard";
 
 const MentorProfilePage = () => {
+
+
   return (
     <div className="px-9 pt-4 h-[95vh] overflow-auto">
       <div className="w-full h-44 bg-blue-300 rounded-lg mb-9 shadow-sm"></div>
