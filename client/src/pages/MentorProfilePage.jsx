@@ -36,7 +36,7 @@ const MentorProfilePage = () => {
             alt="profile"
           />
           <div className="flex flex-col gap-2">
-            <h1 className="text-xl font-semibold">{mentor?.firtname} {mentor?.lastname}</h1>
+            <h1 className="text-xl font-semibold">{mentor?.firstName} {mentor?.lastName}</h1>
             <h3 className="text-sm">{mentor.currentlyWorkingAt}</h3>
             <div className="flex gap-4">
               <span className="text-sm">⭐ 4.9</span>
