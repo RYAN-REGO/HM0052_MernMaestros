@@ -1,6 +1,14 @@
 import MentorCard from "../components/Mentor/MentorCard";
+import {useSelector} from 'react-redux';
 
 const MentorProfilePage = () => {
+  const user = useSelector((state) => state.user);
+  console.log(user);
+
+  const handleBook = () => {
+    console.log(user.currentUser);
+  }
+
   return (
     <div className="px-9 pt-4 h-[95vh] overflow-auto">
       <div className="w-full h-44 bg-blue-300 rounded-lg mb-9 shadow-sm"></div>
@@ -8,7 +16,7 @@ const MentorProfilePage = () => {
         <MentorCard />
         <div className="flex items-center gap-4">
           <span className="text-3xl font-bold">$9</span>
-          <button className="px-4 h-9 active:scale-90 transition duration-300 bg-green-500 rounded-lg text-white font-semibold">
+          <button className="px-4 h-9 active:scale-90 transition duration-300 bg-green-500 rounded-lg text-white font-semibold" onClick = {handleBook}>
             Book
           </button>
         </div>

@@ -58,7 +58,7 @@ const EditMentorProfile = () => {
             className="bg-white mt-5 flex flex-col gap-6 rounded-lg border border-gray-300 shadow-md p-5"
           >
             <div className="flex gap-4 justify-between w-full">
-              <label className="text-black-500 text-sm font-semibold">
+              <label className="w-full text-black-500 text-sm font-semibold">
                 First name
                 <input
                   className="mt-1 block w-full rounded-lg border border-solid border-gray-300 bg-white p-2.5 text-sm leading-5 font-normal text-gray-700 shadow-sm"
@@ -69,7 +69,7 @@ const EditMentorProfile = () => {
                     onChange={(e)=>setFirstName(e.target.value)}
                 />
               </label>
-              <label className="text-black-500 text-sm font-semibold">
+              <label className="w-full text-black-500 text-sm font-semibold">
                 Last name
                 <input
                   className="mt-1 block w-full  rounded-lg border border-solid border-gray-300 bg-white p-2.5 text-sm leading-5 font-normal text-gray-700 shadow-sm"

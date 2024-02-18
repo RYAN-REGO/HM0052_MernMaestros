@@ -85,7 +85,6 @@ const App = () => {
                 <Route path="/login" element={<Login />} />
 
                 <Route path="/dashboard" element={<MentorDashboard />} />
-                {/* <Route path="/room/:roomId" element={<MentorCall/>} /> */}
                 <Route path="/room/:roomId" element={<MentorCall/>}/>
 
                 <Route path="/edit-mentor" element={<EditMentorProfile/>} />
