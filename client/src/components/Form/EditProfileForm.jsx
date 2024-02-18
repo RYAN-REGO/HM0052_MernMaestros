@@ -100,8 +100,8 @@ const EditProfileForm = () => {
           <button onClick={saveChanges} className="px-4 h-11 transition duration-300 bg-green-500 rounded-lg font-semibold text-white">
             Save Profile Changes
           </button>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   );
 };

@@ -29,13 +29,9 @@ export function Sidebar({ toggle }) {
     <nav className={`${classes.navbar} h-[100vh]`}>
       <div className={classes.navbarMain}>
         <Group className={classes.header} justify="space-between">
-          <MantineLogo size={28} />
-          <Code
-            onClick={toggle}
-            className="md:hidden cursor-pointer text-md font-bold"
-            fw={700}
-          >
-            Close
+          <h1 className="text-2xl font-bold text-blue-500">AppName</h1>
+          <Code onClick={toggle} className="md:hidden cursor-pointer">
+            <X />
           </Code>
         </Group>
         <Link

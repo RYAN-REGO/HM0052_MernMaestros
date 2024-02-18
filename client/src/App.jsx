@@ -37,6 +37,7 @@ const App = () => {
   return (
     <MantineProvider>
       <div>
+        <div className="md:hidden flex items-center p-4 border-b border-gray-300">
       <ToastContainer
         position="top-right"
         autoClose={5000}
@@ -56,7 +57,7 @@ const App = () => {
           <Burger
             opened={opened}
             onClick={toggle}
-            className="p-4"
+            className=""
             aria-label="Toggle navigation"
           />
           {opened === true && (
@@ -65,7 +66,7 @@ const App = () => {
             </div>
           )}
           <div>
-            <h1 className="text-2xl font-semibold ml-5">AppName</h1>
+            <h1 className="text-2xl font-bold ml-5">AppName</h1>
           </div>
         </div>
         <div className="flex flex-row justify-between">

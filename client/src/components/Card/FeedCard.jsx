@@ -1,38 +1,55 @@
+import ProfilePhoto from "../../assets/mentor.png";
+
 const FeedCard = () => {
   return (
-    <main className='w-full h-[315px] bg-white border rounded-md '>
-      <div className="flex flex-row gap-3">
-        <div className="h-[120px] w-[170px] bg-black"></div>
-        <div className="flex-col w-full h-[120px]">
-            <div className="w-full h-[50%] flex-col pl-3 pt-1 border-b">
-                <div className="font-bold text-[18px]">Ryan Rego</div>
-                <div className="text-[15px]">Associate engineer at XYZ</div>
-            </div>
-            <div className="line-clamp-2 text-[14px] p-1 pl-3 border-b">
-                With 3 years of data Analyst experience, I offer tailored guidance for your data goals.Dive into immersive sessions, real projects, and master tools.
-            </div>
+    <div className="p-5 border-2 border-gray-300 rounded-lg hover:border-blue-400">
+      <div className=" flex justify-between border-b pb-5 border-gray-300">
+        <div className="flex gap-6  ">
+          <img src={ProfilePhoto} className="h-24 rounded-lg" alt="profile" />
+          <div>
+            <h1 className="font-semibold text-xl">Ryan Rego</h1>
+            <h3 className="text-gray-500">Associate engineer at XYZ</h3>
+            <p className="text-sm mt-1 line-clamp-2 w-3/5">
+              With 3 years of data Analyst experience, I offer tailored guidance
+              for your data goals.Dive into immersive sessions, real projects,
+              and master tools.
+            </p>
+          </div>
         </div>
       </div>
-      <div className="w-full h-[70px] flex items-center justify-between px-5 border-b">
-        <div className="flex flex-row gap-2 w-[200px] h-full items-center">
-            <div className="text-[21px] font-bold">
-                10000
+      <div className="flex justify-between items-center border-b py-5 border-gray-300">
+        <div className="flex  gap-4 items-center">
+          <span className="font-semibold">Profieciency: </span>
+          <div className="flex flex-wrap w-44 gap-2">
+            <div className="px-2 py-1 border border-gray-300 rounded-full text-sm">
+              Webd
             </div>
-            <div className="text-[14px]">Per Hour</div>
-        </div>
-        <div className="">
-            <button className='p-2 bg-slate-200 text-[14px] tracking-wider rounded-md'>View Profile</button>
+            <div className="px-2 py-1 border border-gray-300 rounded-full text-sm">
+              Dsa
+            </div>
+            <div className="px-2 py-1 border border-gray-300 rounded-full text-sm">
+              Dsa
+            </div>
+          </div>
         </div>
       </div>
-      <div className="h-[20%] w-full flex-row line-clamp-2 border-b">
-       
-      </div>
-      <div className="w-full h-[60px] flex items-center px-5 justify-between">
-            <div className="">helo</div>
-            <button className='bg-blue-400 p-2 rounded-md text-[15px] tracking-wide font-semibold hover:bg-blue-500'>Book a Session</button>
+      <div className="pt-4 flex flex-col md:flex-row md:justify-between items-center gap-4">
+        <button className="py-2.5 w-full md:w-auto px-4 bg-gray-400 rounded-lg font-semibold text-white ">
+          View Profile
+        </button>
+
+        <div className="flex items-center gap-4">
+          <h1 className="text-2xl font-semibold">
+            100rs <span className="text-base font-normal">/hr</span>
+          </h1>
+
+          <button className="py-2.5 px-4 bg-green-400 rounded-lg font-semibold text-white ">
+            Book a session
+          </button>
         </div>
-    </main>
-  )
-}
+      </div>
+    </div>
+  );
+};
 
 export default FeedCard;
