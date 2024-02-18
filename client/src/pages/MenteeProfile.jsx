@@ -45,7 +45,7 @@ const MenteeProfilePage = () => {
       <div className=" items-center mt-9 rounded-lg p-4">
         <h1 className="text-xl font-semibold">Need guidance in: </h1>
         <div className="mt-4 flex gap-4">
-          {mentee.needs.map((need) => (
+          {mentee?.needs?.map((need) => (
             <div key={need} className="flex items-center px-4 h-9 rounded-lg border border-gray-300">
               {need}
             </div>

@@ -1,7 +1,28 @@
+import { useEffect, useState } from "react";
 import ProfilePhoto from "../assets/mentor.png";
 import Carousal from "../components/testimonial/Carousal";
+import axios from "axios";
+import { useSelector } from "react-redux";
 
 const MentorProfilePage = () => {
+
+  const [mentor, setMentor] = useState({});
+  const user = useSelector((state) => state.user);
+  const getMentor = async () => {
+    try {
+      axios.post("/data/mentor/get-mentor-profile-data", {
+        email: user?.currentUser?.mentor?.email,
+      }).then((res) => {
+        console.log(res.data);
+        setMentor(res.data);
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    getMentor();
+  },[]);
 
   return (
     <div className="pb-28 md:px-16 pt-4 h-[95vh] overflow-auto text-gray-700">
@@ -9,13 +30,13 @@ const MentorProfilePage = () => {
       <div className="flex flex-col md:flex-row gap-8 items-center justify-between">
         <div className="flex gap-6 items-center">
           <img
-            src={ProfilePhoto}
+            src={mentor.profilePicture ||ProfilePhoto}
             className="h-32 w-32 rounded-full"
             alt="profile"
           />
           <div className="flex flex-col gap-2">
-            <h1 className="text-xl font-semibold">Rohan Ramidwar</h1>
-            <h3 className="text-sm">SDE @XYZ</h3>
+            <h1 className="text-xl font-semibold">{mentor?.firtname} {mentor?.lastname}</h1>
+            <h3 className="text-sm">{mentor.currentlyWorkingAt}</h3>
             <div className="flex gap-4">
               <span className="text-sm">⭐ 4.9</span>
               <span className="text-sm text-green-600">🟢 20+ mentees</span>
@@ -24,7 +45,7 @@ const MentorProfilePage = () => {
         </div>
         <div className="p-4 mt-9 md:mt-0 bg-white shadow-sm border border-green-400 rounded-lg">
           <div className="flex items-center gap-4">
-            <span className="text-3xl font-bold">$9</span>
+            <span className="text-3xl font-bold">${mentor.rateOfMentorship}</span>
             <button className="px-4 h-9 bg-green-600 rounded-lg text-white font-semibold">
               Book a session
             </button>
@@ -38,11 +59,7 @@ const MentorProfilePage = () => {
           Description
         </h1>
         <p className="mt-2">
-          Mentorship to me is not only about - 1. Helping people 2. Guiding them
-          3. Sharing experiences I have mentored a lot of people informally from
-          Linkedin and have realized that, most of the times – People are aware
-          of all solutions and they just want to validate their thought process
-          in structured{" "}
+          {mentor?.bio}
         </p>
       </div>
       <div className="mt-9 rounded-lg ">
@@ -50,12 +67,12 @@ const MentorProfilePage = () => {
           Proficiency:{" "}
         </h1>
         <div className="flex gap-4 flex-wrap mt-4">
-          {proficiencyItems.map((item, index) => (
+          {mentor?.proficiency?.map((item) => (
             <div
-              key={index}
+              key={item}
               className="flex items-center px-4 h-9 rounded-full bg-gray-300"
             >
-              {item.name}
+              {item}
             </div>
           ))}
         </div>
