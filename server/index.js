@@ -5,6 +5,7 @@ import mongoose from "mongoose";
 import mentorAuth from "./routes/mentor.auth.route.js"; 
 import menteeAuth from "./routes/mentee.auth.route.js";
 import menteeProfileEdit from "./routes/mentee.Info.route.js";
+import mentorProfileEdit from "./routes/mentor.info.route.js";
 
 const app = express();
 app.use(cors());    
@@ -24,6 +25,7 @@ app.use('/api/auth/mentor', mentorAuth);
 app.use('/api/auth/mentee', menteeAuth);
 
 app.use('/api/profile/mentee',menteeProfileEdit);
+app.use('/api/profile/mentor',mentorProfileEdit);
 
 app.listen(PORT, () => {
     console.log(`Server listening on port : ${PORT}`);
