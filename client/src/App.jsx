@@ -26,6 +26,7 @@ import MentorDashboard from "./pages/MentorDashboard/MentorDashboard";
 import MentorCall from "./pages/MentorCall";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import EditMentorProfile from "./components/Form/EditMentorForm";
 
 
 axios.defaults.baseURL = "http://localhost:5000/api/";
@@ -86,6 +87,8 @@ const App = () => {
                 <Route path="/dashboard" element={<MentorDashboard />} />
                 {/* <Route path="/room/:roomId" element={<MentorCall/>} /> */}
                 <Route path="/room/:roomId" element={<MentorCall/>}/>
+
+                <Route path="/edit-mentor" element={<EditMentorProfile/>} />
               </Routes>
             </div>
           </div>

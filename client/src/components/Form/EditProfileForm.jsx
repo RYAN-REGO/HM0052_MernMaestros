@@ -1,5 +1,6 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 const EditProfileForm = () => {
@@ -7,13 +8,18 @@ const EditProfileForm = () => {
   const [lastName, setLastName] = useState("");
   const [bio, setBio] = useState("");
   const [guidanceTopics, setGuidanceTopics] = useState("");
-  // const handleSubmit = (event) => {
-  //     event.preventDefault();
-  //     const formData = new FormData(event.target);
-  //     const guidanceTopics = formData.get("guidanceTopics").split(",").map(topic => topic.trim()); // Split input value by commas
-  //     // Send formData including guidanceTopics array to the backend
-  //   };
+  
   const navigate = useNavigate();
+  const user = useSelector((state) => state.user);
+ 
+  const navigateIt = () => {
+    if(user.currentUser.role !== "mentee") {
+      navigate("/edit-mentor");
+    }
+  };
+  useEffect(() => {
+    navigateIt();
+  }, []);
   const saveChanges = (event) => {
     event.preventDefault();
     const token = localStorage.getItem("token");
