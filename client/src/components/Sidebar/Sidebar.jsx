@@ -2,8 +2,15 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 import { Group, Code } from "@mantine/core";
-import { IconBellRinging, IconLogout } from "@tabler/icons-react";
-import { MantineLogo } from "@mantinex/mantine-logo";
+
+import {
+  IconBellRinging,
+  IconLogout,
+  IconUser,
+  IconVideo,
+  IconUserCog,
+} from "@tabler/icons-react";
+
 import classes from "./NavbarSimple.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -11,7 +18,10 @@ import { useSelector } from "react-redux";
 export function Sidebar({ toggle }) {
   const [active, setActive] = useState("Billing");
   const user = useSelector((state) => state.user);
+
   const navigate = useNavigate();
+  const getRole = localStorage.getItem("role");
+  console.log(getRole);
 
   const onClickHandler = (label, event) => {
     event.preventDefault();
@@ -26,8 +36,16 @@ export function Sidebar({ toggle }) {
     <nav className={`${classes.navbar} h-[100vh]`}>
       <div className={classes.navbarMain}>
         <Group className={classes.header} justify="space-between">
-          <h1 className="text-2xl font-bold text-blue-500">AppName</h1>
-          <Code onClick={toggle} className="md:hidden cursor-pointer"></Code>
+
+          {/* <MantineLogo size={28} /> */}
+          <div className="font-bold text-[20px]">Mentor-Connect</div>
+          <Code
+            onClick={toggle}
+            className="md:hidden cursor-pointer text-md font-bold"
+            fw={700}
+          >
+            Close
+          </Code>
         </Group>
         <Link
           className={classes.link}
@@ -35,27 +53,42 @@ export function Sidebar({ toggle }) {
           onClick={(event) => onClickHandler("/Notification", event)}
         >
           <IconBellRinging className="mr-4" />
-          <div className="text-lg font-semibold">Notification</div>
+
+          <div className="text-lg font-semibold">Notifications</div>
         </Link>
-        <Link
-          className={classes.link}
-          data-active={"mentor" === active || undefined}
-          onClick={(event) => {
-            onClickHandler("/mentor", event);
-          }}
-        >
-          <IconBellRinging className="mr-4" />
-          <div className="text-lg font-semibold">Find A Mentor</div>
-        </Link>
+        {getRole && getRole === "mentor" ? (
+          <Link
+            className={classes.link}
+            data-active={"mentor" === active || undefined}
+            onClick={(event) => {
+              onClickHandler("/dashboard", event);
+            }}
+          >
+            <IconUser className="mr-4" />
+            <div className="text-lg font-semibold">Mentor Dashboard</div>
+          </Link>
+        ) : (
+          <Link
+            className={classes.link}
+            data-active={"mentor" === active || undefined}
+            onClick={(event) => {
+              onClickHandler("/mentor", event);
+            }}
+          >
+            <IconUser className="mr-4" />
+            <div className="text-lg font-semibold">Find a mentor</div>
+          </Link>
+        )}
         <Link
           className={classes.link}
           data-active={"join" === active || undefined}
           onClick={(event) => {
-            onClickHandler("/join", event);
+
+            onClickHandler("/applications", event);
           }}
         >
-          <IconBellRinging className="mr-4" />
-          <div className="text-lg font-semibold">Join A Meet</div>
+          <IconVideo className="mr-4" />
+          <div className="text-lg font-semibold">Join a meet</div>
         </Link>
         <Link
           className={classes.link}
@@ -64,7 +97,8 @@ export function Sidebar({ toggle }) {
             onClickHandler("/edit", event);
           }}
         >
-          <IconBellRinging className="mr-4" />
+
+          <IconUserCog className="mr-4" />
           <div className="text-lg font-semibold">Edit Profile</div>
         </Link>
         {!user?.currentUser && (
