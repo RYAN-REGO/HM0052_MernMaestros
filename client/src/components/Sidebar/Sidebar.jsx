@@ -2,6 +2,7 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 import { Group, Code } from "@mantine/core";
+
 import {
   IconBellRinging,
   IconLogout,
@@ -9,6 +10,7 @@ import {
   IconVideo,
   IconUserCog,
 } from "@tabler/icons-react";
+
 import classes from "./NavbarSimple.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -34,6 +36,7 @@ export function Sidebar({ toggle }) {
     <nav className={`${classes.navbar} h-[100vh]`}>
       <div className={classes.navbarMain}>
         <Group className={classes.header} justify="space-between">
+
           {/* <MantineLogo size={28} /> */}
           <div className="font-bold text-[20px]">Mentor-Connect</div>
           <Code
@@ -50,6 +53,7 @@ export function Sidebar({ toggle }) {
           onClick={(event) => onClickHandler("/Notification", event)}
         >
           <IconBellRinging className="mr-4" />
+
           <div className="text-lg font-semibold">Notifications</div>
         </Link>
         {getRole && getRole === "mentor" ? (
@@ -79,6 +83,7 @@ export function Sidebar({ toggle }) {
           className={classes.link}
           data-active={"join" === active || undefined}
           onClick={(event) => {
+
             onClickHandler("/applications", event);
           }}
         >
@@ -92,6 +97,7 @@ export function Sidebar({ toggle }) {
             onClickHandler("/edit", event);
           }}
         >
+
           <IconUserCog className="mr-4" />
           <div className="text-lg font-semibold">Edit Profile</div>
         </Link>

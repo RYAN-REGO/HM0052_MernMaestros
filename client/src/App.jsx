@@ -28,7 +28,6 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import EditMentorProfile from "./components/Form/EditMentorForm";
 
-
 axios.defaults.baseURL = "http://localhost:5000/api/";
 const App = () => {
   const [opened, { toggle }] = useDisclosure();
@@ -37,26 +36,26 @@ const App = () => {
   return (
     <MantineProvider>
       <div>
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-        transition: Bounce
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+          transition:Bounce
         />
-      <ToastContainer />
+        <ToastContainer />
 
         <div className="md:hidden flex items-center">
           <Burger
             opened={opened}
             onClick={toggle}
-            className="p-4"
+            className=""
             aria-label="Toggle navigation"
           />
           {opened === true && (
@@ -65,7 +64,7 @@ const App = () => {
             </div>
           )}
           <div>
-            <h1 className="text-2xl font-semibold ml-5">AppName</h1>
+            <h1 className="text-2xl font-bold ml-5">AppName</h1>
           </div>
         </div>
         <div className="flex flex-row justify-between">
@@ -85,9 +84,10 @@ const App = () => {
                 <Route path="/login" element={<Login />} />
 
                 <Route path="/dashboard" element={<MentorDashboard />} />
+
                 <Route path="/room/:roomId" element={<MentorCall/>}/>
 
-                <Route path="/edit-mentor" element={<EditMentorProfile/>} />
+                <Route path="/edit-mentor" element={<EditMentorProfile />} />
               </Routes>
             </div>
           </div>

@@ -26,13 +26,13 @@ const MentorAllowCard = () => {
         <div className="mt-4">
           <h1 className="font-semibold text-blue-400">Need mentorship in:</h1>
           <div className="mt-2 flex gap-4">
-            <div className="rounded-full border px-2.5 text-sm font-semibold border-gray-300">
+            <div className="rounded-full border px-2 py-1 text-sm font-semibold border-gray-300">
               Placement
             </div>
-            <div className="rounded-full border px-2.5 text-sm font-semibold border-gray-300">
+            <div className="rounded-full border  px-2 py-1 text-sm font-semibold border-gray-300">
               Webd
             </div>
-            <div className="rounded-full border px-2.5 text-sm font-semibold border-gray-300">
+            <div className="rounded-full border  px-2 py-1 text-sm font-semibold border-gray-300">
               Dsa
             </div>
           </div>
