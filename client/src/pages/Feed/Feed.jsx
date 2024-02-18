@@ -1,34 +1,31 @@
-
-import { Select } from '@mantine/core';
-import FeedCard from '../../components/Card/FeedCard';
+import { Select } from "@mantine/core";
+import FeedCard from "../../components/Card/FeedCard";
+import MentorCard from "../../components/Mentor/MentorCard";
 
 const FeedPage = () => {
-
   return (
-    <main className="w-full overflow-auto h-[95vh]">
-      <div className="w-full min-h-[130px] flex-col item-center gap-3 bg-[rgba(34,139,230,.1)] rounded-md">
-        <div className="w-full  flex items-center font-bold text-[30px] p-5 tracking-wide">
-          Recommended Mentors
+    <main className="md:px-16 w-full overflow-auto h-[95vh] text-gray-700">
+      <div className="flex flex-col md:flex-row  justify-between md:items-center min-h-44 bg-blue-400 rounded-lg p-5">
+        <div className="">
+          <h1 className="text-2xl md:text-3xl font-semibold text-white">
+            Recommended Mentors
+          </h1>
+          <h3 className="mt-4 text-xl font-semibold text-white">
+            Showing 100+ mentors
+          </h3>
         </div>
-        <div className="flex flex-row">
-          <div className="text-[15px] w-full font-medium pl-5 tracking-wider">
-            Showing 100+ Mentors
-          </div>
-          <div className="min-w-[39vh] tracking-wider text-[15px] gap-2 flex h-[25px] items-center">
-            Sort by :
-            <Select
-            className="w-[25vh]"
-              placeholder="Recommended"
-              data={["Price Low to High", "Price High to Low"]}
-            />
-          </div>
+        <div className="mt-6 md:mt-0">
+          <span className="text-white font-semibold">Sort by:</span>
+          <Select
+            className="w-80"
+            placeholder="Recommended"
+            data={["Price Low to High", "Price High to Low"]}
+          />
         </div>
       </div>
-      <div className='flex gap-4 mt-2 flex-wrap'>
-        <FeedCard/>
-        <FeedCard/>
-        <FeedCard/>
-        <FeedCard/>
+      <div className="mt-11 flex flex-col gap-4">
+        <FeedCard />
+        <FeedCard />
       </div>
     </main>
   );

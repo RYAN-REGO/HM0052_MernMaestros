@@ -8,12 +8,12 @@ const EditProfileForm = () => {
   const [lastName, setLastName] = useState("");
   const [bio, setBio] = useState("");
   const [guidanceTopics, setGuidanceTopics] = useState("");
-  
+
   const navigate = useNavigate();
   const user = useSelector((state) => state.user);
- 
+
   const navigateIt = () => {
-    if(user.currentUser.role !== "mentee") {
+    if (user?.currentUser?.role !== "mentee") {
       navigate("/edit-mentor");
     }
   };
@@ -23,22 +23,23 @@ const EditProfileForm = () => {
   const saveChanges = (event) => {
     event.preventDefault();
     const token = localStorage.getItem("token");
-    const needs = guidanceTopics.split(",").map(topic => topic.trim()); // Split input value by commas
+    const needs = guidanceTopics.split(",").map((topic) => topic.trim()); // Split input value by commas
     // Send formData including guidanceTopics array to the backend
-    axios.post("profile/mentee/edit", {
-      token,
-      firstName,
-      lastName,
-      bio,
-      needs,
-    })
-    .then((res) => {
-      console.log(res);
-      navigate("/mentee");
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+    axios
+      .post("profile/mentee/edit", {
+        token,
+        firstName,
+        lastName,
+        bio,
+        needs,
+      })
+      .then((res) => {
+        console.log(res);
+        navigate("/mentee");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -46,9 +47,7 @@ const EditProfileForm = () => {
       <div className="h-24 flex items-center bg-blue-200 rounded-lg">
         <h1 className="ml-4 text-4xl font-bold">Edit Profile</h1>
       </div>
-      <form
-        className="mt-9 flex flex-col gap-6"
-      >
+      <form className="mt-9 flex flex-col gap-6">
         <label className="text-black-500 text-sm font-semibold">
           First name
           <input
@@ -97,7 +96,10 @@ const EditProfileForm = () => {
           />
         </label>
         <div className="flex justify-end w-full">
-          <button onClick={saveChanges} className="px-4 h-11 transition duration-300 bg-green-500 rounded-lg font-semibold text-white">
+          <button
+            onClick={saveChanges}
+            className="px-4 h-11 transition duration-300 bg-green-500 rounded-lg font-semibold text-white"
+          >
             Save Profile Changes
           </button>
         </div>

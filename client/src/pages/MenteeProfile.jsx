@@ -35,7 +35,8 @@ const MenteeProfilePage = () => {
           </button>
         </div>
       </div>
-      <div className="mt-9 rounded-lg p-4">
+
+      <div className="mt-16 rounded-lg">
         <h1 className="text-xl font-semibold">Description</h1>
         <p className="mt-2">
           {mentee.bio}
